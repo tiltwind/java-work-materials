@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd">
+<preferences EXTERNAL_XML_VERSION="1.0">
+  <root type="user">
+    <map/>
+    <node name="com.ibm.jinwoo.gcanalyzer">
+      <map>
+        <entry key="workingDir" value="D:\tmp\boccfc_log\85_20160912_native"/>
+      </map>
+    </node>
+  </root>
+</preferences>

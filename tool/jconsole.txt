@@ -1,0 +1,11 @@
+
+java.util.logging.manager=org.jboss.logmanager.LogManager 
+-Djava.rmi.server.hostname=localhost -Dcom.sun.management.jmxremote.port=11011 -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false
+
+service:jmx:rmi:///jndi/rmi://10.10.1.1:11011/jmxrmi
+
+service:jmx:rmi:///jndi/rmi://58.58.8.41:11011/jmxrmi
+
+export java.util.logging.manager=org.jboss.logmanager.LogManager
+
+JAVA_OPTS="$JAVA_OPTS -Djava.util.logging.manager=org.jboss.logmanager.LogManager"

@@ -1,0 +1,74 @@
+
+
+----------------------------------------------------------
+  QUESTION
+----------------------------------------------------------
+First, a really dumb question, I was just wondering what the waiting 'parking' means ? 
+Is the thread waiting to be parked or is it just been parked and therefore is in wait state ? 
+And when that parking happen, how much cpu/memory resources are taken ? 
+What's the purpose of parking a thread ?
+
+Second, by looking at park method in java thread API:
+	----------------------
+	Disables the current thread for thread scheduling purposes unless the permit is available. 
+	If the permit is available then it is consumed and the call returns immediately; 
+	otherwise the current thread becomes disabled for thread scheduling purposes and lies dormant until one of three things happens:
+
+	Some other thread invokes unpark with the current thread as the target; 
+	or Some other thread interrupts the current thread; 
+	or The call spuriously (that is, for no reason) returns. 
+	This method does not report which of these caused the method to return. 
+	Callers should re-check the conditions which caused the thread to park in the first place. 
+	Callers may also determine, for example, the interrupt status of the thread upon return.
+	
+	So a parked thread is a thread blocked using LockSupport.park().
+	----------------------
+	
+I intended 'permit' as kind of 'permission to park the thread', so the questions that follow:
+	> what's the meaning of that, what's 'permit', and who and how is checking those permit ?
+	> What does that mean: 'if permit is available then it is consumed', is it getting 'parked' ?
+	> following, if second point is true, so what's the difference between 'parking' and 'lies dormant' ? 
+	> If I have permit I can park it forever and if not, I can make it 'dormant' ?
+
+Thanks
+
+
+
+----------------------------------------------------------
+  ANSWER
+----------------------------------------------------------
+
+From the class description (at the top of the LockSupport javadoc) where it describes the permit:
+	-------------------------
+	This class associates with each thread that uses it, a permit (in the sense of the Semaphore class). 
+	A call to park will return immediately if the permit is available, consuming [the permit] in the process; 
+	otherwise [the call to park] may block. A call to unpark makes the permit available, if it was not already available. 
+	(Unlike with Semaphores though, permits do not accumulate. There is at most one.)
+	-------------------------
+
+Permit means a permission to continue execution. 
+Parking means suspending execution until permit is available.
+
+Unlike Semaphore(信号量)'s permits, permits of LockSupport are associated with threads (i.e. permit is given to a particular thread) 
+and doesn't accumulate (i.e. there can be only one permit per thread, when thread consumes the permit, it disappears).
+
+You can give permit to a thread by calling unpark(). A thread can suspend its execution until permit is available 
+(or thread is interrupted, or timeout expired, etc) by calling park().
+When permit is available, the parked thread consumes it and exits a park() method.
+
+
+-------------
+As per the java Thread State Documentation, A thread can go to WAITING state for three reasons:
+	> Object.wait with no timeout
+	> Thread.join with no timeout
+	> LockSupport.park
+	
+When you call a park method on a Thread, it will Disables the the thread for thread scheduling purposes unless the permit is available. 
+You can call unpark method to Makes available the permit for the given thread, if it was not already available.
+
+So, when your Thread is in WAITING mode by LockSupport.park, it will shows you as WAITING (parking).
+
+Please make note that, you can call park on current Thread only. 
+This is very helpful mechanism to implement Producer-Consumer Design Pattern.
+
+

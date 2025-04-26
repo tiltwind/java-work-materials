@@ -1,0 +1,35 @@
+Use Jstat command
+
+jstat command comes with JDK as well. Invoke the command as follows
+
+JDK_HOME/bin/jstat.exe -gc <PROCESS ID OF YOUR JAVA APPLICATION>
+
+Sample output:
+
+S0C S1C S0U S1U EC EU OC OU PC PU YGC YGCT FGC FGCT GCT
+22400 20736 224 0 306368 202917.9 699072 528814.9 74624 74552.1 112 13.496 1 0.311 13.807
+
+Here is the description of the fields.
+
+	S0C  Current survivor space 0 capacity (KB).
+	S1C  Current survivor space 1 capacity (KB).
+	S0U  Survivor space 0 utilization (KB).
+	S1U  Survivor space 1 utilization (KB).
+	EC  Current eden space capacity (KB).
+	EU  Eden space utilization (KB).
+	OC  Current old space capacity (KB).
+	OU  Old space utilization (KB).
+	PC  Current permanent space capacity (KB).
+	PU  Permanent space utilization (KB).
+	YGC  Number of young generation GC Events.
+	YGCT  Young generation garbage collection time.
+	FGC  Number of full GC events.
+	FGCT  Full garbage collection time.
+	GCT  Total garbage collection time.
+
+When you add all the ‘utilizations’ i.e OU,PU,EU,S0U,S1U, you get the total Heap utilization.
+
+
+jstat -gc 31281
+ S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT
+512.0  512.0   0.0   320.0  38912.0  11687.0   175104.0   88214.4   87040.0 84279.3 10752.0 10208.6  51387  301.492   4      0.776  302.268

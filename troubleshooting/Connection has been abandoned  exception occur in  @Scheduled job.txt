@@ -1,0 +1,69 @@
+Connection has been abandoned  @Scheduled
+
+------------------------------------------
+DB POOL CONFIG:
+------------------------------------------
+			  
+	 <Resource name="jdbc_psbccfcap"
+      auth="Container"
+      type="javax.sql.DataSource"
+      factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+      testWhileIdle="true"
+      testOnBorrow="true"
+      testOnReturn="true"
+      validationInterval="30000"
+      timeBetweenEvictionRunsMillis="30000"
+      maxActive="100"
+      minIdle="1"
+      maxWait="10000"
+      initialSize="1"
+      removeAbandonedTimeout="60"
+      removeAbandoned="true"
+	  jdbcInterceptors="ConnectionState;StatementFinalizer"
+      logAbandoned="true"
+      minEvictableIdleTimeMillis="30000"
+      jmxEnabled="true"
+      username="PSBCAP"
+      password="psbccfc2015"
+      driverClassName="oracle.jdbc.driver.OracleDriver"
+      url="jdbc:oracle:thin:@20.223.0.117:1521:psbcdb"
+	  validationQuery="SELECT 1 from dual"
+	  /> 
+-----------------------------------------------------------
+EXCEPTION
+-----------------------------------------------------------
+
+	  WARNING: Connection has been abandoned PooledConnection
+ 
+ 
+-----------------------------------------------------------
+SOLUTION
+-----------------------------------------------------------
+
+	an into something similar to this in a production environment with long-running batch jobs. 
+	The problem is if your code needs a connection longer than the time specified by property:
+
+	name="removeAbandonedTimeout" value="60
+
+	and you have enabled:
+
+	<property name="removeAbandoned" value="true" />
+
+	then it will get disconnected during the processing after 60 seconds. 
+	One possible workaround (that didn't work for me) is to enable the interceptor:
+
+	jdbcInterceptors="ResetAbandonedTimer"
+
+	This will reset the abandoned timer for that connection for every read/write that occurs. 
+	Unfortunately in my case, the processing would sometimes still take longer than the timeout 
+	before anything was read/written to the database. So I was forced to either bump the timeout length, 
+	or disable the removeAbandonded (I chose the former solution).
+
+	Hope this helps someone else if they run into something similar!
+
+
+	-------------------------------------------------------------
+	UPDATE jdbcInterceptors, add ResetAbandonedTimer:
+
+	  jdbcInterceptors="ConnectionState;StatementFinalizer;ResetAbandonedTimer"
+ 

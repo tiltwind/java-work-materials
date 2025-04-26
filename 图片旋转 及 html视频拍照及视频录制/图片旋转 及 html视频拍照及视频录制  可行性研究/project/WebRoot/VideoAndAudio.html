@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+<title>camera</title>
+<script language="javascript" src="js/jquery.js"></script>
+<script src="js/RecordRTC.js"></script>
+</head>
+
+<body>
+	<div>
+		<div class="inner">
+			<h2 id="download-url"></h2>
+			<br>
+			<video id="video"></video>
+			<hr>
+			<button id="start-recording">Record Audio+Video</button>
+			<button id="stop-recording" disabled="disabled">Stop</button>
+			<br>
+		</div>
+		<div>	
+		<div id="buttonbar">
+			<button id="restart" onclick="restart();">[]</button>
+			<button id="rew" onclick="skip(-5)">&lt;&lt;</button>
+			<button id="play" onclick="vidplay()">&gt;</button>
+			<button id="fastFwd" onclick="skip(5)">&gt;&gt;</button>
+		</div>
+		<button id="captureImage" onclick="captureImage();">拍照</button>
+		  <canvas style="display:block" id="canvas" width="320" height="320"></canvas>
+		</div>
+		<script language="javascript">
+		
+	var videoElement = document.getElementById('video');
+	var context = document.getElementById("canvas").getContext("2d");
+    var downloadURL = document.getElementById('download-url');
+
+    var startRecording = document.getElementById('start-recording');
+    var stopRecording = document.getElementById('stop-recording');
+	var localStream = null;
+	$(document).ready(function() {
+	    captureUserMedia({
+     		 audio: true,
+     		 video: true
+  		}, function(stream) {
+    		  videoElement.src = URL.createObjectURL(stream);
+    		  videoElement.muted = true;
+     		  videoElement.controls = true;
+     		  videoElement.play();
+     		  localStream = stream;
+  		}, function(error) {
+    		  alert(JSON.stringify(error));
+  		});
+     });
+	
+	function captureImage(){
+	  context.drawImage(videoElement, 0, 0, 320, 320);
+	}
+    function vidplay() {
+       var button = document.getElementById("play");
+       if (videoElement.paused) {
+         videoElement.play();
+          button.textContent = "||";
+       } else {
+         videoElement.pause();
+          button.textContent = ">";
+       }
+    }
+
+    function restart() {
+        videoElement.currentTime = 0;
+    }
+
+    function skip(value) {
+      // alert(value);
+      // videoElement.currentTime = 3;
+        videoElement.currentTime += value;
+       // alert(videoElement.currentTime);
+    }  
+    function captureUserMedia(mediaConstraints, successCallback, errorCallback) {
+      navigator.getMedia = (navigator.getUserMedia
+              || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia);
+      navigator.getMedia(mediaConstraints,successCallback,errorCallback);//navigator.mediaDevices.getUserMedia.then(successCallback).catch(errorCallback);
+  }
+
+
+
+  startRecording.onclick = function() {
+      startRecording.disabled = true;
+      stopRecording.disabled = false;
+      window.audioVideoRecorder = window.RecordRTC(localStream, {
+              type: 'video/mp4'
+      });
+      window.audioVideoRecorder.startRecording();
+      
+  };
+
+  stopRecording.onclick = function() {
+    startRecording.disabled = false;
+    stopRecording.disabled = true;
+      window.audioVideoRecorder.stopRecording(function(url) {
+          downloadURL.innerHTML = '<a href="' + url + '" download="RecordRTC.mp4" target="_blank">保存到本地磁盘</a><hr>';
+          videoElement.src = url;
+          videoElement.muted = false;
+          videoElement.play();
+
+          videoElement.onended = function() {
+            videoElement.load();
+             // videoElement.pause();
+              // dirty workaround for: "firefox seems unable to playback"
+             // videoElement.src = URL.createObjectURL(audioVideoRecorder.getBlob());
+          };
+      });
+  };
+  </script>
+</body>
+</html>

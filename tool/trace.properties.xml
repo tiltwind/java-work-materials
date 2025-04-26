@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>IBM Trace and Request Analyzer by Jinwoo Hwang</comment>
+<entry key="Lines.prop">10</entry>
+<entry key="Version.prop">3.0.3</entry>
+<entry key="Threshold.prop">1000</entry>
+<entry key="Directory.prop">D:\tmp\boccfc_log\85_20160911_snap</entry>
+<entry key="Language.prop"/>
+<entry key="Console.prop">IBM Trace and Request Analyzer is up to date as of Mon Sep 12 11:53:31 CST 2016
+Parser language=English (United States) format=9/12/16 11:54:20:270 CST
+Parser language=English (United States) format=9/12/16 11:54:50:605 CST
+</entry>
+<entry key="LookAndFeel.prop">0</entry>
+</properties>

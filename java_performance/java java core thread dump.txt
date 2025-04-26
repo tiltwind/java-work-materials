@@ -1,0 +1,72 @@
+
+-----------------------------------------------------------------
+#### THREAD DUMP
+-----------------------------------------------------------------
+发生问题时， thread dump 间隔5s产生4个， heapdump 产生一个
+
+A). ps -ef | grep java
+	qProcessbox 20650 1   0   Mar 26 ?         104:51 /opt/app/qProcessbox/java/jdk1.5.0_22/bin/java
+
+B). Now use     kill -3 20650
+	Syntax:  kill -3 <ProcessID>
+	The OutPut of the Thread Dump will be generated in the Server STDOUT.
+
+	
+	【【【注意】】】 有些程序是将stdout导到/dev/null, 改用执行 ./javadump.sh PID 的方式导出。
+
+	 jcmd -l <pid> Thread.print 
+
+	 jcmd <pid> GC.heap_info
+	 jcmd <pid> VM.flagso
+	 jcmd <pid> GC.class_stats > class_stats.data
+	 jcmd <pid> GC.class_histogram > class_histogram.data
+
+	 jcmd 支持的命令参考: https://docs.oracle.com/javase/8/docs/technotes/guides/troubleshoot/tooldescr006.html
+
+
+查看java 进程及参数: jps -lvm
+
+-----------------------------------------------------------------
+#### WEBLOGIC THREAD DUMP
+-----------------------------------------------------------------	
+java weblogic.Admin -url t3://AdminHostName:7001 -username admin -password password THREAD_DUMP
+java weblogic.Admin -url t3://11.111.26.9:7001 -username admin -password psbccfc2015 THREAD_DUMP
+
+	OR
+
+Login to AdminConsole—>Server —> Monitoring —> Threads
+
+
+-----------------------------------------------------------------
+#### HEAP DUMP
+-----------------------------------------------------------------
+ps -ef |grep weblogic
+jmap -dump:live,format=b,file=jmap.out <PID>
+
+
+
+-----------------------------------------------------------------
+#### JMAP
+-----------------------------------------------------------------
+jmap -heap:live,format=b,file=heap.out <PID>
+	Prints a heap summary. GC algorithm used, heap configuration and generation wise heap usage are printed.
+
+jmap -histo:live,format=b,file=histo.out <PID>
+	Prints a histogram of the heap. For each Java class, number of objects, memory size in bytes, and fully qualified class names are printed. 
+	VM internal class names are printed with '*' prefix. If the live suboption is specified, only live objects are counted.
+
+	
+jmap -dump:live,format=b,file=jmap.out <PID>
+	Dumps the Java heap in hprof binary format to filename. 
+		The live suboption is optional. If specified, only the live objects in the heap are dumped. 
+		To browse the heap dump, you can use jhat (Java Heap Analysis Tool) to read the generated file.
+
+This command will generate a heap dump file in binary format and will only count live objects (the live option is optional). 
+Live objects are used by applications and generally reside in the Young Generation part of the heap.
+
+
+jhat can also be used to analyze heap dump files.
+Example:
+	jhat dumpfile
+	jhat -J-Xmx4g -port 20202 <heap dump file>
+	jhat -J-Xmx4g -port 20202 jmap.out

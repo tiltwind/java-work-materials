@@ -1,0 +1,24 @@
+查看jvm内存使用情况，会导致java挂起：
+jmap -heap PID
+
+查看堆使用情况：
+jmap -histo pid
+
+导出jvm内存信息：
+jmap -dump:format=b,file=java.dump pid
+jmap -dump:format=b,file=java.dump 27035
+
+分析堆内存文件：
+jhat -J-Xmx4g java.dump
+
+start HTTP server on port 7000
+通过浏览器访问
+
+kill -3 pid
+线程相关信息输出到console
+
+jstack pid
+查看线程情况
+
+
+

@@ -1,0 +1,17 @@
+1. EntityManagerFactory instances are heavyweight objects. Each factory might maintain a metadata cache, 
+	object state cache, EntityManager pool, connection pool, and more. If your application no longer needs 
+	an EntityManagerFactory, you should close it to free these resources.
+
+2. When an EntityManagerFactory closes, all EntityManagers from that factory, and by extension all entities managed by those EntityManagers, become invalid.
+
+3. It is much better to keep a factory open for a long period of time than to repeatedly create and close new factories. 
+	Thus, most applications will never close the factory, or only close it when the application is exiting.
+
+4. Only applications that require multiple factories with different configurations have an obvious reason 
+	to create and close multiple EntityManagerFactory instances.
+
+5. Only one EntityManagerFactory is permitted to be created for each deployed persistence unit configuration. 
+	Any number of EntityManager instances may be created from a given factory.
+
+6. More than one entity manager factory instance may be available simultaneously in the JVM. 
+	Methods of the EntityManagerFactory interface are threadsafe.

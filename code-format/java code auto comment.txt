@@ -1,0 +1,23 @@
+1. 新生成代码时已配置eclipse code template,新建的时候会自动生成代码；
+
+2. 如何为旧代码添加注释？
+	----------------------
+	介绍： http://jautodoc.sourceforge.net/
+	下载: http://sourceforge.net/projects/jautodoc/files/latest/download
+	
+	下载后解压到myeclipse的 dropins目录，比如C:\app\MyEclipse2014\dropins，然后重启myeclipse；
+	
+	配置：
+		1. 打开JAutodoc配置，在filter中的filter methods配置中将以下两项勾起来：
+			Exclude [G,S]etters
+			Exclude overriding
+		2. 勾选 Add File Header，并配置以下内容：
+			/**
+			 * Created By: Comwave Project Team
+			 * Created Date: ${date}
+			 */
+		3. 把 use eclipse comment formatter 勾起来；
+			
+			
+	项目上点击右键即选择 JAutoDoc > Add Javadoc , 即可扫描项目全部代码添加注释。
+	

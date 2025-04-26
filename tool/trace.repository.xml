@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>IBM Trace and Request Analyzer Trace Repository</comment>
+<entry key="SessionPreInvoke.entry">SessionContex &gt; SessionContext.sessionPreInvoke Entry</entry>
+<entry key="Webcontainer.exit">SRTServletRes &lt;  finish Exit</entry>
+<entry key="prepareXAResource.entry">JTAXAResource &gt;  prepare Entry</entry>
+<entry key="Webcontainer.menu">Webcontainer</entry>
+<entry key="TransactionCommitTime.entry">TransactionIm e (SPI) Transaction BEGIN occurred for TX:</entry>
+<entry key="OnMessage1.regex2">0</entry>
+<entry key="OnMessage1.regex1">0</entry>
+<entry key="EJBpre.desc">Use for transaction timeout issues WTRN0006W
+Trace option Transaction=all</entry>
+<entry key="WebServiceResponseTime.entry">MessageTrace  3   WSWS3571I:</entry>
+<entry key="WebServiceProviderResponseTime.mnemonic"/>
+<entry key="executeJdbcupdate.regex2">0</entry>
+<entry key="executeJdbcupdate.regex1">0</entry>
+<entry key="FilterProcessingTime.entry">WebAppFilterM &gt; doFilter traget=ServletWrapper</entry>
+<entry key="ServletJSP.exit">ServletWrappe &lt; service Exit</entry>
+<entry key="ServletJSP.menu">ServletJSP</entry>
+<entry key="MDBWrapperOnMessage.exit">MDBWrapper    &lt; onMessage</entry>
+<entry key="MDBWrapperOnMessage.menu">MDBWrapperOnMessage</entry>
+<entry key="WebServiceProviderResponseTime.regex2">0</entry>
+<entry key="getPooledConnectionDB2.desc">For use when using DB2s Connection Pool 
+rather than WAS Connection Pool
+Trace option RRA=all</entry>
+<entry key="WebServiceProviderResponseTime.regex1">0</entry>
+<entry key="getConnectionWAS51.mnemonic"/>
+<entry key="executequery.exit">WSJdbcPrepare &lt;  executeQuery Exit</entry>
+<entry key="executequery.menu"/>
+<entry key="executeJdbcstatementAll.regex2">0</entry>
+<entry key="TransactionManagerimplruntime.exit">TranManagerIm &lt;  commit (SPI) Exit</entry>
+<entry key="executeJdbcstatementAll.regex1">0</entry>
+<entry key="loadWebApp.regex2">0</entry>
+<entry key="executeJdbcstatementquerysubset.exit">WSJdbcStateme &lt;  executeQuery Exit</entry>
+<entry key="executeJdbcstatementquerysubset.menu">executeJdbcstatementquerysubset</entry>
+<entry key="loadWebApp.regex1">0</entry>
+<entry key="executeJdbcstatementAll.desc">Statement execution response time to database 
+useful when tackling J2CA0045E issues
+Trace option RRA=all (adapter)</entry>
+<entry key="NEW TEST.entry"/>
+<entry key="WebServiceResponseTime.desc">Measures overall Web Services response times.
+Trace option com.ibm.ws.webservices.trace.*=all</entry>
+<entry key="WebServiceResponseTime.mnemonic"/>
+<entry key="TransactionCompleteTime.regex2">0</entry>
+<entry key="TransactionCompleteTime.regex1">0</entry>
+<entry key="SessionPostInvoke.exit">SessionContex &lt; SessionContext.sessionPostInvoke Exit</entry>
+<entry key="SessionPostInvoke.menu">SessionPostInvoke</entry>
+<entry key="SessionPreInvoke.desc">Session Preinvoke Processing Time .
+Trace option 
+com.ibm.ws.wswebcontainer.*=all:
+com.ibm.wsspi.webcontainer.*=all</entry>
+<entry key="executequery.mnemonic"/>
+<entry key="TCPOutboundChannel.mnemonic"/>
+<entry key="dispatchByURI.regex2">0</entry>
+<entry key="dispatchByURI.regex1">0</entry>
+<entry key="QueryExecuteTime.regex2">0</entry>
+<entry key="SessionPreInvoke.regex2">0</entry>
+<entry key="QueryExecuteTime.regex1">0</entry>
+<entry key="SessionPreInvoke.regex1">0</entry>
+<entry key="getConnectionWAS51.exit">ConnectionMan &lt; inactiveConnectionClosed</entry>
+<entry key="getConnectionWAS51.menu">getConnectionWAS51</entry>
+<entry key="executeJdbcstatementquerysubset.entry">WSJdbcStateme &gt;  executeQuery Entry</entry>
+<entry key="SessionFrequency.desc">Time between new sessions
+Useful if investigating session locking.
+Trace option 
+com.ibm.ws.wswebcontainer.*=all:
+com.ibm.wsspi.webcontainer.*=all</entry>
+<entry key="SessionFrequency.entry">SessionContext:createSession: generated new sessionid </entry>
+<entry key="QueryExecuteTime.entry">WSJdbcConnect &gt; prepareStatementEntry</entry>
+<entry key="SessionPostInvoke.entry">SessionContex &gt; SessionContext.sessionPostInvoke Entry</entry>
+<entry key="prepareXAResource.regex2">0</entry>
+<entry key="prepareXAResource.regex1">0</entry>
+<entry key="TransactionManagerimplruntime.entry">TranManagerIm &gt;  begin (SPI) Entry</entry>
+<entry key="executeJdbcupdate.desc">Trace option RRA=all (adapter)</entry>
+<entry key="TransactionCommitTime.exit">TranManagerSe &lt; commit</entry>
+<entry key="TransactionCommitTime.menu">TransactionCommitTime</entry>
+<entry key="QueryExecuteTime.desc">Time it takes to prepare the statment and execute the Query  sent  to and return 
+from the Database useful for J2CA0045E issues
+Trace option RRA=all (adapter)</entry>
+<entry key="EJBpost.mnemonic"/>
+<entry key="Connectionrequest.exit">ConnectionEve &gt;  connectionClosed Entry</entry>
+<entry key="Connectionrequest.menu">Connectionrequest</entry>
+<entry key="TransactionManagerimplruntime.mnemonic"/>
+<entry key="WebServiceResponseTime.regex2">0</entry>
+<entry key="QueryExecuteTime.mnemonic"/>
+<entry key="getServerSession.mnemonic"/>
+<entry key="WebServiceResponseTime.regex1">0</entry>
+<entry key="FilterProcessingTime.mnemonic"/>
+<entry key="OnMessage1.mnemonic"/>
+<entry key="getConnectionWAS51.regex2">0</entry>
+<entry key="getConnectionWAS51.regex1">0</entry>
+<entry key="executequery.entry">WSJdbcPrepare &gt;  executeQuery Entry</entry>
+<entry key="SessionPostInvoke.mnemonic"/>
+<entry key="dispatchByURI.exit">ServletReques &lt; dispatchByURI</entry>
+<entry key="dispatchByURI.menu">dispatchByURI</entry>
+<entry key="TransactionCompleteTime.desc">Use for transaction timeout issues WTRN0006W
+Trace option Transaction=all</entry>
+<entry key="SessionPreInvoke.mnemonic"/>
+<entry key="OnMessage1.entry">callOnMessage</entry>
+<entry key="Connectionheld.menu">Connectionheld</entry>
+<entry key="Connectionheld.regex2">0</entry>
+<entry key="OnMessage2.entry">EJSContainer  &lt;  EJBpreInvoke(0:onMessage)</entry>
+<entry key="Connectionheld.exit">ConnectionEve &gt;  connectionClosed Entry</entry>
+<entry key="Connectionheld.regex1">0</entry>
+<entry key="OnMessage2.regex2">0</entry>
+<entry key="OnMessage2.regex1">0</entry>
+<entry key="TransactionCompleteTime.mnemonic"/>
+<entry key="EJBpost.entry">EJSContainer  &gt;  EJBpostInvoke</entry>
+<entry key="EJBpre.mnemonic"/>
+<entry key="OnMessage2.mnemonic"/>
+<entry key="ServletJSP.regex2">0</entry>
+<entry key="ServletJSP.regex1">0</entry>
+<entry key="EJBpre.exit">EJSContainer  &lt;  EJBpreInvoke</entry>
+<entry key="EJBpre.menu">EJBpre</entry>
+<entry key="executequery.regex2">0</entry>
+<entry key="executequery.regex1">0</entry>
+<entry key="TCPOutboundChannel.desc">getOutboundFactory</entry>
+<entry key="WebServiceProviderResponseTime.desc">Measures the Provider part of the Web Services response time.
+Trace option com.ibm.ws.webservices.trace.*=all</entry>
+<entry key="SessionProcessingTime.desc">SessionProcessingTime Entry to Exit.
+(Includes filter processing time and Servletjsp processing time)
+Trace option 
+com.ibm.ws.wswebcontainer.*=all:
+com.ibm.wsspi.webcontainer.*=all</entry>
+<entry key="EJBpost.regex2">0</entry>
+<entry key="EJBpost.regex1">0</entry>
+<entry key="commitXAResource.desc">For use when reviewing 1 phase extended transactions timings
+Calculates time taken to commit an XA resource involved in a 
+Global Transaction.
+Trace option Transaction=all
+</entry>
+<entry key="Trace.keyword.list">commitXAResource,Connectionheld,Connectionrequest,dispatchByURI,EJBMethod,EJBpost,EJBpre,executeJdbcstatementAll,executeJdbcstatementquerysubset,executeJdbcupdate,executequery,FilterProcessingTime,getConnectionWAS51,getPooledConnectionDB2,getServerSession,loadWebApp,MDBWrapperOnMessage,OnMessage1,OnMessage2,prepareXAResource,QueryExecuteTime,ServletJSP,SessionFrequency,SessionPostInvoke,SessionPreInvoke,SessionProcessingTime,TransactionCommitTime,TransactionCompleteTime,TransactionManagerimplruntime,Webcontainer,WebServiceProviderResponseTime,WebServiceResponseTime</entry>
+<entry key="getPooledConnectionDB2.exit">InternalGener &lt;  getPooledCon Exit</entry>
+<entry key="getPooledConnectionDB2.menu">getPooledConnectionDB2</entry>
+<entry key="version">1.1</entry>
+<entry key="executeJdbcstatementAll.exit">&lt;  execute</entry>
+<entry key="executeJdbcstatementAll.menu">executeJdbcstatementAll</entry>
+<entry key="getServerSession.regex2">0</entry>
+<entry key="loadWebApp.mnemonic">l</entry>
+<entry key="WebServiceResponseTime.menu">WebServiceResponseTime</entry>
+<entry key="getServerSession.regex1">0</entry>
+<entry key="WebServiceResponseTime.exit"> MessageTrace  3   WSWS3570I:</entry>
+<entry key="OnMessage1.desc">Determines the frequency of messages being 
+processed on the same thread
+Trace option messageing=all
+</entry>
+<entry key="prepareXAResource.desc">For use when reviewing 2 phase extended transactions timings</entry>
+<entry key="SessionProcessingTime.mnemonic"/>
+<entry key="Webcontainer.mnemonic"/>
+<entry key="SessionPreInvoke.exit">SessionContex &lt; SessionContext.sessionPreInvoke Exit</entry>
+<entry key="SessionPreInvoke.menu">SessionPreInvoke</entry>
+<entry key="SessionFrequency.mnemonic"/>
+<entry key="SessionFrequency.exit">SessionContext:createSession: generated new sessionid</entry>
+<entry key="SessionFrequency.menu">SessionFrequency</entry>
+<entry key="executeJdbcstatementAll.mnemonic"/>
+<entry key="EJBMethod.desc">Time for EJB Method to complete
+Trace option EJBContainer=all</entry>
+<entry key="TCPOutboundChannel.entry">TCPOutboundCh &gt;  getOutboundFactory Entry</entry>
+<entry key="ServletJSP.mnemonic"/>
+<entry key="executeJdbcupdate.menu">executeJdbcupdate</entry>
+<entry key="MDBWrapperOnMessage.regex2">0</entry>
+<entry key="executeJdbcupdate.exit">WSJdbcPrepare &lt;  executeUpdate Exit</entry>
+<entry key="QueryExecuteTime.exit">WSJdbcPrepare &lt; executeQueryExit</entry>
+<entry key="QueryExecuteTime.menu">QueryExecuteTime</entry>
+<entry key="MDBWrapperOnMessage.regex1">0</entry>
+<entry key="EJBMethod.mnemonic"/>
+<entry key="ServletJSP.entry">ServletWrappe &gt; service ServletWrapper</entry>
+<entry key="EJBpost.desc">Time for EJBpost Method to complete
+Note Commit occurs during Post invoke.
+Trace option EJBContainer=all</entry>
+<entry key="TransactionCommitTime.regex2">0</entry>
+<entry key="SessionPostInvoke.regex2">0</entry>
+<entry key="TransactionCommitTime.regex1">0</entry>
+<entry key="SessionPostInvoke.regex1">0</entry>
+<entry key="Connectionrequest.entry">ConnectionPoo &gt;  createConnection Entry</entry>
+<entry key="loadWebApp.desc">Search pattern for loadWebApp</entry>
+<entry key="executeJdbcupdate.mnemonic"/>
+<entry key="SessionProcessingTime.entry">SessionContex &gt; SessionContext.sessionPreInvoke Entry</entry>
+<entry key="dispatchByURI.entry">ServletReques &gt; dispatchByURI</entry>
+<entry key="Connectionrequest.mnemonic"/>
+<entry key="TransactionCompleteTime.exit">TransactionIm &lt;  notifyCompletion Exit</entry>
+<entry key="TransactionCompleteTime.menu">TransactionCompleteTime</entry>
+<entry key="getServerSession.desc">ServerSession measurement</entry>
+<entry key="getConnectionWAS51.entry">ConnectionMan &gt; allocateConnection</entry>
+<entry key="EJBMethod.entry">EJSContainer &lt; EJBpreInvoke</entry>
+<entry key="getServerSession.entry">ServerSession &gt; getServerSession</entry>
+<entry key="executeJdbcstatementAll.entry">&gt;  execute</entry>
+<entry key="getPooledConnectionDB2.entry">InternalGener &gt;  getPooledCon Entry</entry>
+<entry key="FilterProcessingTime.desc">Filter Processing time, entry to exit.
+(Includes servletJSP processing time)
+Trace option 
+com.ibm.ws.wswebcontainer.*=all:
+com.ibm.wsspi.webcontainer.*=all</entry>
+<entry key="TCPOutboundChannel.exit">TCPOutboundCh &lt;  getOutboundFactory Exit</entry>
+<entry key="TCPOutboundChannel.menu"/>
+<entry key="WebServiceProviderResponseTime.exit">MessageTrace  3   WSWS3572I:</entry>
+<entry key="WebServiceProviderResponseTime.menu">WebServiceProviderResponseTime</entry>
+<entry key="OnMessage2.desc">For use when analysing slow MDB execution times
+within an EJB context.
+Trace option EJBContainer=all</entry>
+<entry key="SessionProcessingTime.exit">SessionContex &lt; SessionContext.sessionPostInvoke Exit</entry>
+<entry key="SessionProcessingTime.menu">SessionProcessingTime</entry>
+<entry key="commitXAResource.exit">JTAXAResource &lt;  commit Exit</entry>
+<entry key="commitXAResource.menu"/>
+<entry key="Webcontainer.desc">Webcontainer start and end point</entry>
+<entry key="OnMessage1.exit">callOnMessage</entry>
+<entry key="TransactionCommitTime.mnemonic"/>
+<entry key="Connectionrequest.regex2">0</entry>
+<entry key="Connectionrequest.regex1">0</entry>
+<entry key="Webcontainer.entry">WebContainer  3   webcontainer.handleRequest request uri --&gt;</entry>
+<entry key="prepareXAResource.exit">JTAXAResource &lt;  prepare Exit</entry>
+<entry key="prepareXAResource.menu">prepareXAResource</entry>
+<entry key="loadWebApp.entry">WebGroup      &gt; loadWebApp</entry>
+<entry key="EJBMethod.regex2">0</entry>
+<entry key="EJBMethod.regex1">0</entry>
+<entry key="Webcontainer.regex2">0</entry>
+<entry key="Webcontainer.regex1">0</entry>
+<entry key="ServletJSP.desc">Servlet &amp; JSP processing time
+Trace option 
+com.ibm.ws.wswebcontainer.*=all:
+com.ibm.wsspi.webcontainer.*=all</entry>
+<entry key="MDBWrapperOnMessage.desc">Main MDB trace option. Used for investigating Slow MDB
+execution times.
+Trace option messaging=all</entry>
+<entry key="executequery.desc">Trace option RRA=all</entry>
+<entry key="TransactionCompleteTime.entry">TransactionIm 1   (SPI) Transaction BEGIN occurred for TX:</entry>
+<entry key="TransactionManagerimplruntime.desc">Use for transaction timeoiut issues WTRN0006W
+Trace option Transaction=all</entry>
+<entry key="executeJdbcupdate.entry">WSJdbcPrepare &gt;  executeUpdate Entry</entry>
+<entry key="executeJdbcstatementquerysubset.desc">Main measure you want to see. JDBC level return time of Query.
+Trace option RRA=all</entry>
+<entry key="EJBMethod.exit">EJSContainer &gt; EJBpostInvoke</entry>
+<entry key="EJBMethod.menu">EJBMethod</entry>
+<entry key="SessionFrequency.regex2">0</entry>
+<entry key="SessionFrequency.regex1">0</entry>
+<entry key="executeJdbcstatementquerysubset.mnemonic"/>
+<entry key="MDBWrapperOnMessage.entry">MDBWrapper    &gt; onMessage</entry>
+<entry key="commitXAResource.regex2">0</entry>
+<entry key="SessionPostInvoke.desc">Session Postinvoke Processing Time .
+Trace option 
+com.ibm.ws.wswebcontainer.*=all:
+com.ibm.wsspi.webcontainer.*=all</entry>
+<entry key="commitXAResource.regex1">0</entry>
+<entry key="dispatchByURI.mnemonic">d</entry>
+<entry key="EJBpost.exit">EJSContainer  &lt;  EJBpostInvoke</entry>
+<entry key="EJBpost.menu">EBJpost</entry>
+<entry key="EJBpre.entry">EJSContainer  &gt;  EJBpreInvoke</entry>
+<entry key="FilterProcessingTime.regex2">0</entry>
+<entry key="FilterProcessingTime.regex1">0</entry>
+<entry key="getConnectionWAS51.desc">Specific filter for WAS 51  when tackling 
+Connection Pool exhausted or performance issues</entry>
+<entry key="WebServiceProviderResponseTime.entry">MessageTrace  3   WSWS3569I:</entry>
+<entry key="loadWebApp.exit">WebGroup      &lt; loadWebApp</entry>
+<entry key="loadWebApp.menu">loadWebApp</entry>
+<entry key="Connectionheld.mnemonic"/>
+<entry key="TransactionCommitTime.desc">Use for transaction timeout issues WTRN0006W
+Trace option Transaction=all</entry>
+<entry key="commitXAResource.entry">JTAXAResource &gt;  commit Entry</entry>
+<entry key="Connectionrequest.desc">Time taken to create a connection - useful  for
+ Connection Pool exhausted and performance issues.
+Trace option was.j2c=all</entry>
+<entry key="getServerSession.exit">ServerSession &lt; getServerSession</entry>
+<entry key="getServerSession.menu">getServerSession</entry>
+<entry key="MDBWrapperOnMessage.mnemonic"/>
+<entry key="executeJdbcstatementquerysubset.regex2">0</entry>
+<entry key="executeJdbcstatementquerysubset.regex1">0</entry>
+<entry key="getPooledConnectionDB2.regex2">0</entry>
+<entry key="SessionProcessingTime.regex2">0</entry>
+<entry key="getPooledConnectionDB2.regex1">0</entry>
+<entry key="SessionProcessingTime.regex1">0</entry>
+<entry key="commitXAResource.mnemonic"/>
+<entry key="TransactionManagerimplruntime.regex2">0</entry>
+<entry key="TransactionManagerimplruntime.regex1">0</entry>
+<entry key="getPooledConnectionDB2.mnemonic"/>
+<entry key="dispatchByURI.desc">Search pattern for dispatchByURI</entry>
+<entry key="FilterProcessingTime.exit">WebAppFilterM &lt; doFilter Exit</entry>
+<entry key="prepareXAResource.mnemonic"/>
+<entry key="FilterProcessingTime.menu">executequery</entry>
+<entry key="OnMessage2.exit">EJSContainer  &gt;  EJBpostInvoke(0:onMessage) Entry</entry>
+<entry key="OnMessage2.menu">OnMessage2</entry>
+<entry key="Connectionheld.desc">Measues the Time a Connection in use  
+useful for Connection Pool exhausted and performance issues.
+Trace option was.j2c=all</entry>
+<entry key="EJBpre.regex2">0</entry>
+<entry key="EJBpre.regex1">0</entry>
+<entry key="Connectionheld.entry">MCWrapper     &lt;  getConnection: Exit</entry>
+</properties>

@@ -1,0 +1,25 @@
+
+mkdir -p /home/nginx/cert
+
+cd /home/nginx/cert
+
+javac InstallCert.java
+
+java InstallCert api.fraudmetrix.cn
+java InstallCert portal.fraudmetrix.cn
+
+vi /home/nginx/tomcat8/bin/cateline.sh #加在其他语句前面
+export JAVA_OPTS=" -Djavax.net.ssl.trustStore=/home/nginx/cert/jssecacerts"
+
+restart tomcat
+
+
+keytool -list -keystore  jssecacerts
+
+
+java InstallCert api.fraudmetrix.cn
+java InstallCert portal.fraudmetrix.cn
+keytool -list -keystore  jssecacerts |findstr fraudmetrix
+输入密钥库口令:  changeit
+portal.fraudmetrix.cn-1, 2015-10-26, trustedCertEntry,
+api.fraudmetrix.cn-1, 2015-10-26, trustedCertEntry,

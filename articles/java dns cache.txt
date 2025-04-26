@@ -1,0 +1,22 @@
+Oracle/Sun Java offers internal cache for it's own name resolution mechanism (it is not specific to Apache Tomcat servlet container).
+
+It seems that easiest solution would be restart whole JVM container. 
+Later, if you want to completely disable internal DNS cache, 
+you can do this by setting "networkaddress.cache.ttl" and "networkaddress.cache.negative.ttl" system properties to 0.
+http://docs.oracle.com/javase/6/docs/technotes/guides/net/properties.html
+
+networkaddress.cache.ttl
+Specified in java.security to indicate the caching policy for successful name lookups from the name service.. 
+The value is specified as as integer to indicate the number of seconds to cache the successful lookup.
+A value of -1 indicates "cache forever". The default behavior is to cache forever when a security manager is installed, 
+and to cache for an implementation specific period of time, when a security manager is not installed.
+
+
+networkaddress.cache.negative.ttl (default: 10)
+Specified in java.security to indicate the caching policy for un-successful name lookups from the name service.. 
+The value is specified as as integer to indicate the number of seconds to cache the failure for un-successful lookups.
+A value of 0 indicates "never cache". A value of -1 indicates "cache forever".
+
+
+vi /home/nginx/tomcat8/bin/catalina.sh
+export JAVA_OPTS=" -Dnetworkaddress.cache.ttl=0 -Dnetworkaddress.cache.negative.ttl=0 "$JAVA_OPTS

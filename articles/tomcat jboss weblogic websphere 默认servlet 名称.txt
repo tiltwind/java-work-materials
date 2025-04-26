@@ -1,0 +1,6 @@
+
+Tomcat, Jetty, JBoss, and GlassFish  默认 Servlet的名字 -- "default"
+Google App Engine 默认 Servlet的名字 -- "_ah_default"
+Resin 默认 Servlet的名字 -- "resin-file"
+WebLogic 默认 Servlet的名字  -- "FileServlet"
+WebSphere  默认 Servlet的名字 -- "SimpleFileServlet" 

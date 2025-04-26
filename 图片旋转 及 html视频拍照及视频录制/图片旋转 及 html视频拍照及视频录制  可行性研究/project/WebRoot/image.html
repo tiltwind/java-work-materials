@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>jquery.iviewer test</title>
+        <script type="text/javascript" src="js/jquery.min.js" ></script>
+        <script type="text/javascript" src="js/jqueryui.js" ></script>
+        <script type="text/javascript" src="js/jquery.mousewheel.min.js" ></script>
+        <script type="text/javascript" src="js/jquery.iviewer.js" ></script>
+        <script type="text/javascript">
+            var $ = jQuery;
+            $(document).ready(function(){         
+              
+                  /*var iv1 = $("#viewer").iviewer({
+                       src: "images/test_image.jpg",
+                       update_on_resize: false,
+                       zoom_animation: false,
+                       ui_disabled:true,//自带的控制按钮true不显示
+                       mousewheel: false,
+                       zoom_on_dblclick:false,//双击变大关闭
+                       onMouseMove: function(ev, coords) { },
+                       onStartDrag: function(ev, coords) { return false; }, //this image will not be dragged
+                       onDrag: function(ev, coords) { }
+                  });
+
+                   $("#in").click(function(){ iv1.iviewer('zoom_by', 1); });
+                   $("#out").click(function(){ iv1.iviewer('zoom_by', -1); });
+                   $("#fit").click(function(){ iv1.iviewer('fit'); });
+                   $("#orig").click(function(){ iv1.iviewer('angle', 90); });
+                   $("#update").click(function(){ iv1.iviewer('angle', -90); });*/
+
+                  var iv2 = $("#viewer2").iviewer(
+                  {
+                      src: "images/test_image2.jpg"
+                  });
+
+                  /*$("#chimg").click(function()
+                  {
+                    iv2.iviewer('loadImage', "test_image.jpg");
+                    return false;
+                  });
+
+                  var fill = false;
+                  $("#fill").click(function()
+                  {
+                    fill = !fill;
+                    iv2.iviewer('fill_container', fill);
+                    return false;
+                  });*/
+            });
+        </script>
+        <link rel="stylesheet" href="css/jquery.iviewer.css" />
+        <style>
+            .viewer
+            {
+                width: 50%;
+                height: 500px;
+                border: 1px solid black;
+                position: relative;
+				text-align:center;
+            }
+
+            .wrapper
+            {
+                overflow: hidden;
+            }
+        </style>
+    </head>
+    <body>
+            <div id="viewer2" class="viewer" style="width: 80%;"></div>
+            <br />
+        </div>
+    </body>
+</html>

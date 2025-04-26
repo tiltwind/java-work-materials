@@ -1,0 +1,49 @@
+cd D:/appserver/tomcat7/keystore/
+#------------------
+# generate key
+#------------------
+keytool -genkey -alias tomcat7ssl -keystore ./tomcat7ssl.jks -keyalg RSA -validity 2000
+
+#------------------
+# export certificate
+#------------------
+keytool -exportcert -alias tomcat7ssl -keystore ./tomcat7ssl.jks -keypass password -file tomcat7ssl.crt
+
+#------------------
+# Import the keystore from JKS to PKCS12
+#------------------
+keytool -importkeystore -srckeystore ./tomcat7ssl.jks -destkeystore tomcat7ssl.p12 -srcstoretype JKS -deststoretype PKCS12 -srcstorepass password -deststorepass password -srcalias tomcat7ssl -destalias tomcat7ssl -srckeypass password -destkeypass password -noprompt
+
+#------------------
+# Convert pkcs12 to pem using openssl
+#------------------
+openssl pkcs12 -in tomcat7ssl.p12 -out tomcat7ssl.pem -passin pass:password -passout pass:password
+
+#------------------
+# When OpenSSL is first configured it is normal to encrypt the SSL encryption key. This means that when the SSL is
+# started a password is required so that the key can be decrypted. To prevent this happening you simply store the key
+# unencrypted. To do this first create a backup of the encrypted key then use OpenSSL to decrypt the key.
+#------------------
+rename tomcat7ssl.pem tomcat7ssl.pem.encrypted
+openssl rsa -in tomcat7ssl.pem.encrypted -out tomcat7ssl.pem
+
+
+keytool -list -v -keystore client.jks -storepass 123456
+keytool.exe -import -keystore C:\j2sdk1.4.2_01\jre\lib\security\cacerts -file c:\authorize.net.cer -alias a
+
+
+	<!--
+	<Connector port="8443" protocol="HTTP/1.1" SSLEnabled="true"
+         maxThreads="150" scheme="https" secure="true"
+         clientAuth="false" sslProtocol="TLS"
+             SSLCertificateFile="C:/Users/Administrator/Desktop/testcert/tomcat7ssl.crt"
+             SSLCertificateKeyFile="C:/Users/Administrator/Desktop/testcert/tomcat7ssl.pem"
+         SSLVerifyClient="optional" SSLProtocol="TLSv1"
+         />
+	-->
+	<Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol" SSLEnabled="true"
+               maxThreads="150" scheme="https" secure="true"
+               clientAuth="false" sslProtocol="TLS" 
+				keystoreFile="C:/Users/Administrator/Desktop/testcert/tomcat7ssl.jks"
+				keystorePass="password"
+	/>

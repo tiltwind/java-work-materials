@@ -1,0 +1,26 @@
+
+
+download: https://wiki.eclipse.org/MemoryAnalyzer/Releases
+
+
+
+
+The Diagnostic Tool Framework for Java (DTFJ) is a Java application programming interface (API) used to support the building of Java diagnostics tools.
+
+http://public.dhe.ibm.com/ibmdl/export/pub/software/websphere/runtimes/tools/dtfj/
+------------------------
+	IBM DTFJ overview
+	DTFJ works with data from a system dump that has been processed by the jextract tool. 
+	The jextract tool produces metadata from the dump, which allows the internal structure of the JVM to be analyzed. 
+	You must run jextract on the system that produced the dump. (For more information on jextract see the Diagnosis documentation.)
+	The DTFJ API helps diagnostics tools access the following information:
+		> Memory locations stored in the dump
+		> Relationships between memory locations and Java internals
+		> Java threads running within the JVM
+		> Native threads held in the dump
+		> Java classes and their classloaders that were present
+		> Java objects that were present in the heap
+		> Java monitors and the objects and threads they are associated with
+		> Details of the machine on which the dump was produced
+		> Details of the Java version that was being used
+		> The command line that launched the JVM

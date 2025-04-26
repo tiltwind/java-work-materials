@@ -1,0 +1,25 @@
+ 开启JBoss7的access_log功能
+
+
+对于一个网站来说，访问日志，即access_log，对网站来说是一项很重要的功能。利用它，我们可以统计出很多有用的信息，从而给网站的运维带来方便，所以基本上每个网站都会开启这件功能。
+
+ 
+
+配置
+
+在默认的情况下，JBoss7.1是没有开启access_log的，如果要开启这项功能，就需要修改$JBOSS_HOME\standalone\configuration\standalone.xml这个文件，相关的修改内容如下所示：
+[html] view plaincopy
+
+    <subsystem xmlns="urn:jboss:domain:web:1.0"default-virtual-server="default-host">  
+        <connector name="http"scheme="http" protocol="HTTP/1.1" socket-binding="http"/>  
+         <virtual-server name="default-host" enable-welcome-root="true">  
+          <alias name="localhost"/>  
+          <alias name="example.com"/>  
+          <access-log/>  
+        </virtual-server>  
+    </subsystem>  
+
+
+结束语
+
+当完成上面的配置并重启服务器后，你就可以访问一下你的网站，然后你就会在$JBOSS_HOME\standalone\log\default-host目录下看到一个名为access_log.2012-02-24的文件，它就是你所需要的访问日志啦。

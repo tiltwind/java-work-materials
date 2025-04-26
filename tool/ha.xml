@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE preferences SYSTEM "http://java.sun.com/dtd/preferences.dtd">
+<preferences EXTERNAL_XML_VERSION="1.0">
+  <root type="user">
+    <map/>
+    <node name="com.ibm.jinwoo.heapanalyzer">
+      <map>
+        <entry key="Plugins" value="E,Built-in Plug-ins,"/>
+        <entry key="LicensedVersion" value="456"/>
+        <entry key="WorkingDirectory" value="C:\Users\gelnyang\Documents\boccfc\heapdump.20160829.142413.3306.0001"/>
+        <entry key="Confirm" value="false"/>
+      </map>
+    </node>
+  </root>
+</preferences>

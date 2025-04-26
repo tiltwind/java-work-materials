@@ -1,0 +1,25 @@
+
+设置Tomcat的JAVA_OPTS参数
+===========================================
+WINDOWS
+===========================================
+修改 TOMCAT/bin/catalina.bat
+
+rem ----- Execute The Requested Command ---------------------------------------
+set JAVA_OPTS=%JAVA_OPTS% -server -Xms512m -Xmx2048m   -XX:MaxNewSize=256m -XX:PermSize=512M -XX:MaxPermSize=1024m
+echo Using CATALINA_BASE:   "%CATALINA_BASE%"
+echo Using CATALINA_HOME:   "%CATALINA_HOME%"
+echo Using CATALINA_TMPDIR: "%CATALINA_TMPDIR%"
+
+===========================================
+通过 TOMCAT/bin/startup.sh 启动
+
+可通过 JAVA_HOME/bin/jconsole 本地连接 org.apache.catalina.startup.Bootstrap start
+
+在jConsole的 VM摘要中能看到刚才设置的VM参数
+
+===========================================
+Linux
+===========================================
+
+export JAVA_OPTS=$JAVA_OPTS' -server -Xms512m -Xmx2048m   -XX:MaxNewSize=256m -XX:PermSize=512M -XX:MaxPermSize=1024m'
